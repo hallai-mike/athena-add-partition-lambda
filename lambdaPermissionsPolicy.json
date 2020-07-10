@@ -1,0 +1,39 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetBucketLocation",
+				"s3:GetObject",
+				"s3:ListBucket",
+				"s3:ListBucketMultipartUploads",
+				"s3:ListMultipartUploadParts",
+				"s3:AbortMultipartUpload",
+				"s3:CreateBucket",
+				"s3:PutObject"
+			],
+			"Resource": [
+				"arn:aws:s3:::ATHENA_QUERY_RESULT_BUCKET_NAME",
+				"arn:aws:s3:::ATHENA_QUERY_RESULT_BUCKET_NAME/*"
+			]
+		},
+		{
+			"Sid": "VisualEditor1",
+			"Effect": "Allow",
+			"Action": [
+				"glue:BatchCreatePartition",
+				"glue:GetDatabase",
+				"glue:GetTable",
+				"athena:StartQueryExecution",
+				"lambda:InvokeFunction"
+			],
+			"Resource": [
+				"arn:aws:athena:REGION:ACCOUNT_ID:workgroup/primary",
+				"arn:aws:glue:REGION:ACCOUNT_ID:catalog",
+				"arn:aws:glue:REGION:ACCOUNT_ID:database/DATABASE_NAME",
+				"arn:aws:glue:REGION:ACCOUNT_ID:table/DATABASE_NAME/TABLE_NAME"
+			]
+		}
+	]
+}
