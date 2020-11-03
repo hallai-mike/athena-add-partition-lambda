@@ -1,7 +1,7 @@
 # Automatically Create Athena Table Partitions Using Lambda
 
 ### Summary:
-Amazon Athena is an interactive query service that makes it easy to analyze data stored in Amazon S3 using standard SQL.  It is recommended to partition the S3 data in order to reduce the amount of data scanned per query.  This presents a problem as new partitions have to be manually added to the Athena table whenever data is added to S3.  This solution automates that task by invoking a Lambda function whenever an object is added the the S3 bucket.  The lambda function executes an Athena query that creates the table partition if it doesn't already exist.
+Amazon Athena is an interactive query service that makes it easy to analyze data stored in Amazon S3 using standard SQL.  It is recommended to partition the S3 data in order to reduce the amount of data scanned per query.  This presents a problem as new partitions have to be manually added to the Athena table whenever data is added to S3.  This solution automates that task by invoking a Lambda function whenever an object is added to the S3 bucket.  The lambda function executes an Athena query that creates the table partition if it doesn't already exist.
 
 ### Prerequisites:
 - S3 Bucket structured with hive partitioning
